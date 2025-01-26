@@ -3,7 +3,7 @@ If it says "Python 3.x," you’re good. If not, uninstall and try again. You’r
 ---
 
 STEP 3: RUN THE INSTALLER
-- Double-click `install.bat` to start the installation.
+- Double-click `Run.bat` to start the installation.
 - If you’re lucky, everything’s already set up, and G.A.L will launch automatically.
 - If not, the installer will guide you through the rest. Pay attention, or you’ll miss something important.
 
@@ -24,8 +24,9 @@ STEP 5: JOIN THE LEGION
 
 NOTES:
 - Keep `G.A.L.pyw` and the other files in the same folder. Don’t move them unless you know what you’re doing.
-- If you force reinstall (because you’re paranoid), edit `install.bat` and set `FORCE_INSTALL` to 1. But don’t blame me if things break.
-- Also, if you want to delete d bugs.... Do it!
+- If you force reinstall (because you’re paranoid), edit `Run.bat` and set `FORCE_INSTALL` to 1. But don’t blame me if things break.
+- Also, if you want to delete d bug files.... Do it!
+You'll understand I'm sure of it!!
 
 ---
 
