@@ -1,0 +1,74 @@
+What is G.A.L?
+Kratos (God of War):
+"G.A.L is not just a tool, mortal. It is a weapon. A weapon forged to unleash the full power of your system. Whether you’re battling gods or grinding through the latest AAA title, G.A.L ensures your rig is as mighty as Mjölnir."
+
+Key Features
+System Optimizer
+GLaDOS (Portal):
+"Ah, the System Optimizer. It cleans up your files like I clean up test subjects—efficiently and without remorse. Temp files? Deleted. Recycle Bin? Emptied. DNS cache? Flushed. Your system will be as pristine as a freshly baked cake. But the cake is a lie."
+
+Game Optimizer
+Master Chief (Halo):
+"G.A.L’s Game Optimizer is your AI companion in the heat of battle. It monitors your system, disables non-essential processes, and prioritizes your game like Cortana prioritizes saving humanity. Set CPU affinity, boost performance, and dominate the battlefield."
+
+Customizable Program List
+Geralt of Rivia (The Witcher):
+"Hmm. Your favorite games, added to a list. G.A.L watches over them like I watch over Ciri. Add your programs, and it’ll optimize your system automatically. No magic required—just pure, unadulterated performance."
+
+User-Friendly GUI
+Nathan Drake (Uncharted):
+"Let’s be honest, no one likes a clunky interface. G.A.L’s GUI is as smooth as a well-planned heist. Tabs? Check. Dark theme? Check. Real-time updates? Double-check. It’s so intuitive, even Sully could use it."
+
+Advanced Features
+Doom Slayer (DOOM):
+"Cloudflare DNS? Faster internet. Ultimate Power Plan? Maximum performance. Disable Windows Defender and animations? Reduced system overhead. G.A.L doesn’t just optimize your system—it rips and tears through inefficiency like I rip and tear through demons."
+
+How to Use G.A.L
+System Optimizer Tab
+Wheatley (Portal 2):
+"Alright, mate! Just click the buttons to clean and optimize. Or, if you’re feeling lazy—which, let’s be honest, who isn’t?—hit ‘Run All’ and let G.A.L do the work. Watch the status log for updates. It’s like having a personal assistant, but without the sarcasm. Okay, maybe a little sarcasm."
+
+Game Optimizer Tab
+Lara Croft (Tomb Raider):
+"Add your games to the monitoring list, and G.A.L will optimize your system the moment you launch them. ‘Add Program’ for individual games or ‘Add Directory’ to scan an entire folder. Start monitoring, and your system will be as ready for adventure as I am."
+
+Saving and Loading
+Arthur Morgan (Red Dead Redemption 2):
+"Save your program list like you’d save your progress in a camp. Load it back up when you’re ready to ride. G.A.L’s got your back, partner. Just don’t forget to save—unlike some folks I know."
+
+Log Management
+Bayonetta (Bayonetta):
+"Clear the log, save the log—G.A.L lets you manage it all with the grace of a witch in battle. Keep track of your optimizations, or clear the slate and start fresh. Either way, you’ll look fabulous doing it."
+
+Technical Details
+Ezio Auditore (Assassin’s Creed):
+"G.A.L is built with precision, just like the hidden blade. Python is its language, and libraries like psutil, tkinter, and threading are its tools. Designed for Windows 10/11, it requires Python 3.x and administrative privileges. Requiescat in pace, inefficiency."
+
+Why G.A.L?
+Commander Shepard (Mass Effect):
+"G.A.L isn’t just a tool—it’s a mission. A mission to give you the edge in gaming and productivity. It’s built for those who refuse to settle for less than the best. With G.A.L, you’re not just optimizing your system; you’re joining a legion of gamers who demand performance, precision, and power. We’ll bang, okay?"
+
+How to Get Started
+Claptrap (Borderlands):
+"Download G.A.L, run install.bat, and launch G.A.L.pyw! It’s so easy, even a Vault Hunter could do it. And trust me, I’ve seen some questionable decisions out there. Let’s get optimizing, minion!"
+
+Disclaimer
+Ciri (The Witcher):
+"G.A.L is designed to improve your system, but use it wisely. Always back up your data before running optimizations. The developers aren’t responsible for any mishaps. And trust me, I’ve seen what happens when things go wrong."
+
+Join the Legion
+Duke Nukem (Duke Nukem):
+"G.A.L is your ticket to a faster, smoother, and more powerful gaming experience. It’s time to kick inefficiency in the ass and chew bubblegum. And guess what? I’m all outta gum. Are you ready to join the legion?"
+
+- xxxnightvoidxxx
+
+Made with help from DeepSeek!
+
+If you wish to support me, don't just do it lol 
+
+https://www.patreon.com/c/xxxnightvoidxxx
+
+https://www.twitch.tv/xxxnightvoidxxx
+
+https://www.youtube.com/@xxxNightVoidxxx
+
