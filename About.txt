@@ -1,68 +1,297 @@
-What is G.A.L?
-Kratos (God of War):
-"G.A.L is not just a tool, mortal. It is a weapon. A weapon forged to unleash the full power of your system. Whether you’re battling gods or grinding through the latest AAA title, G.A.L ensures your rig is as mighty as Mjölnir."
+# G.A.L - Gamers As Legions: Complete Documentation
 
-Key Features
-System Optimizer
-GLaDOS (Portal):
-"Ah, the System Optimizer. It cleans up your files like I clean up test subjects—efficiently and without remorse. Temp files? Deleted. Recycle Bin? Emptied. DNS cache? Flushed. Your system will be as pristine as a freshly baked cake. But the cake is a lie."
+## What is G.A.L?
 
-Game Optimizer
-Master Chief (Halo):
-"G.A.L’s Game Optimizer is your AI companion in the heat of battle. It monitors your system, disables non-essential processes, and prioritizes your game like Cortana prioritizes saving humanity. Set CPU affinity, boost performance, and dominate the battlefield."
+**G.A.L (Gamers As Legions)** is a comprehensive Windows optimization tool designed specifically for gamers who demand maximum performance from their systems. It combines system cleaning, real-time game optimization, power plan management, and advanced performance tuning into a single, powerful application.
 
-Customizable Program List
-Geralt of Rivia (The Witcher):
-"Hmm. Your favorite games, added to a list. G.A.L watches over them like I watch over Ciri. Add your programs, and it’ll optimize your system automatically. No magic required—just pure, unadulterated performance."
+---
 
-User-Friendly GUI
-Nathan Drake (Uncharted):
-"Let’s be honest, no one likes a clunky interface. G.A.L’s GUI is as smooth as a well-planned heist. Tabs? Check. Dark theme? Check. Real-time updates? Double-check. It’s so intuitive, even Sully could use it."
+## Key Features
 
-Advanced Features
-Doom Slayer (DOOM):
-"Cloudflare DNS? Faster internet. Ultimate Power Plan? Maximum performance. Disable Windows Defender and animations? Reduced system overhead. G.A.L doesn’t just optimize your system—it rips and tears through inefficiency like I rip and tear through demons."
+### 🚀 System Optimizer
+- **Comprehensive Cleaning**: Remove temporary files, cache data, and system clutter
+- **RAM Optimization**: Free up memory from memory-intensive processes
+- **Registry Maintenance**: Clean and optimize system settings
+- **Network Optimization**: Flush DNS, configure optimal DNS servers
+- **Service Management**: Disable unnecessary background services
 
-How to Use G.A.L
-System Optimizer Tab
-Wheatley (Portal 2):
-"Alright, mate! Just click the buttons to clean and optimize. Or, if you’re feeling lazy—which, let’s be honest, who isn’t?—hit ‘Run All’ and let G.A.L do the work. Watch the status log for updates. It’s like having a personal assistant, but without the sarcasm. Okay, maybe a little sarcasm."
+### 🎮 Game Optimizer  
+- **Real-time Monitoring**: Automatically detect and optimize running games
+- **Process Priority Management**: Boost game process priority for better performance
+- **CPU Affinity Control**: Assign specific CPU cores to games
+- **Background Process Management**: Temporarily disable non-essential processes
+- **Automatic Optimization**: Apply optimizations when games launch
 
-Game Optimizer Tab
-Lara Croft (Tomb Raider):
-"Add your games to the monitoring list, and G.A.L will optimize your system the moment you launch them. ‘Add Program’ for individual games or ‘Add Directory’ to scan an entire folder. Start monitoring, and your system will be as ready for adventure as I am."
+### ⚡ Power Plan Management
+- **Power Scheme Control**: Create, delete, and manage Windows power plans
+- **Ultimate Performance**: Unlock and configure hidden high-performance plans
+- **Trickster Feature**: Disguise ultimate performance plans for easy selection
+- **Template-based Creation**: Generate custom power plans from templates
 
-Saving and Loading
-Arthur Morgan (Red Dead Redemption 2):
-"Save your program list like you’d save your progress in a camp. Load it back up when you’re ready to ride. G.A.L’s got your back, partner. Just don’t forget to save—unlike some folks I know."
+### 🛠️ Advanced Tools
+- **Process Optimization**: Manual CPU affinity and priority settings
+- **System Monitoring**: Real-time process detection and optimization
+- **Log Management**: Comprehensive logging and debug console
+- **Customizable Interface**: Adjustable window sizes and dark theme
 
-Log Management
-Bayonetta (Bayonetta):
-"Clear the log, save the log—G.A.L lets you manage it all with the grace of a witch in battle. Keep track of your optimizations, or clear the slate and start fresh. Either way, you’ll look fabulous doing it."
+---
 
-Technical Details
-Ezio Auditore (Assassin’s Creed):
-"G.A.L is built with precision, just like the hidden blade. Python is its language, and libraries like psutil, tkinter, and threading are its tools. Designed for Windows 10/11, it requires Python 3.x and administrative privileges. Requiescat in pace, inefficiency."
+## Technical Requirements
 
-Why G.A.L?
-Commander Shepard (Mass Effect):
-"G.A.L isn’t just a tool—it’s a mission. A mission to give you the edge in gaming and productivity. It’s built for those who refuse to settle for less than the best. With G.A.L, you’re not just optimizing your system; you’re joining a legion of gamers who demand performance, precision, and power. We’ll bang, okay?"
+### System Requirements
+- **OS**: Windows 10 or Windows 11 (64-bit)
+- **Python**: Version 3.7 or higher
+- **RAM**: 4GB minimum, 8GB recommended
+- **Storage**: 100MB free space
+- **Permissions**: Administrator privileges required
 
-How to Get Started
-Claptrap (Borderlands):
-"Download G.A.L, run Run.bat, and launch G.A.L.pyw! It’s so easy, even a Vault Hunter could do it. And trust me, I’ve seen some questionable decisions out there. Let’s get optimizing, minion!"
+### Required Python Packages
+- `psutil` - System and process utilities
+- `customtkinter` - Modern GUI framework
+- Additional standard library modules
 
-Disclaimer
-Ciri (The Witcher):
-"G.A.L is designed to improve your system, but use it wisely. Always back up your data before running optimizations. The developers aren’t responsible for any mishaps. And trust me, I’ve seen what happens when things go wrong."
+---
 
-Join the Legion
-Duke Nukem (Duke Nukem):
-"G.A.L is your ticket to a faster, smoother, and more powerful gaming experience. It’s time to kick inefficiency in the ass and chew bubblegum. And guess what? I’m all outta gum. Are you ready to join the legion?"
+## Installation Guide
+
+### Step 1: Download and Extract
+1. Download the G.A.L package
+2. Extract all files to your desired location
+3. Keep all files together in the same folder
+
+### Step 2: Install Python (if needed)
+- Download Python 3.7+ from [python.org](https://python.org)
+- During installation, **check "Add Python to PATH"**
+- Verify installation by opening Command Prompt and typing `python --version`
+
+### Step 3: Run the Installer
+1. Double-click `Run.bat` to start installation
+2. Allow Administrator privileges when prompted
+3. The installer will automatically:
+   - Check for required dependencies
+   - Upgrade pip if needed
+   - Install missing packages
+   - Launch G.A.L upon completion
+
+### Step 4: Verification
+- Check `GAL_Install_Debug.log` for any installation issues
+- Ensure G.A.L launches successfully
+- Verify all features are accessible
+
+---
+
+## How to Use G.A.L
+
+### System Optimizer Tab
+
+#### Basic Operations:
+1. **Individual Optimizations**:
+   - Click any button to run specific optimizations
+   - Monitor progress in the status text box
+   - Each operation provides detailed feedback
+
+2. **Selective Optimization**:
+   - Use checkboxes to select preferred operations
+   - Click "Run Preferred" to execute selected optimizations only
+
+3. **Complete Optimization**:
+   - Click "Run All" for comprehensive system optimization
+   - Operations run in parallel for efficiency
+
+#### Available Optimizations:
+- **RAM Cache Cleaning** - Free up system memory
+- **Temp File Cleaning** - Remove temporary files from multiple locations
+- **Prefetch Cleaning** - Clear application prefetch data
+- **Recycle Bin** - Permanently empty recycle bin
+- **DNS Management** - Flush cache and set optimal DNS
+- **Power Plans** - Configure high-performance power schemes
+- **Windows Services** - Disable telemetry, Cortana, Game Bar
+- **Network Optimization** - Optimize adapter settings for gaming
+
+### Game Optimizer Tab
+
+#### Setting Up Game Monitoring:
+1. **Add Programs to Monitor**:
+   - **Manual Entry**: Type program name (e.g., `game.exe`) and click "Add Program"
+   - **Directory Scan**: Click "Add Directory" to scan folders for .exe files
+   - **Load List**: Import saved program lists from file
+
+2. **Save Your Configuration**:
+   - Use "Save List" to store your program list for future sessions
+   - Load previous lists with "Load List"
+
+#### Power Plan Management:
+1. **View Available Plans**:
+   - Click "Refresh Plans" to see all power schemes
+   - Active plan is marked with [ACTIVE]
+
+2. **Manage Power Plans**:
+   - **Set Active**: Select a plan and click "Set Active"
+   - **Delete Plan**: Remove unwanted plans (cannot delete active)
+   - **Create New**: Generate custom plans from templates
+
+3. **Trickster Feature** (Tools Menu):
+   - Unlocks hidden "Ultimate Performance" plan
+   - Disguises it as "High Performance" for easy selection
+   - Automatically activates the optimized plan
+
+#### Process Monitoring:
+1. **Start Monitoring**:
+   - Click "Start Monitoring" to begin watching for programs
+   - G.A.L will automatically optimize detected games
+   - Monitor status in the log window
+
+2. **Manual Process Optimization**:
+   - **Select Process**: Choose from running processes dropdown
+   - **CPU Affinity**: Set specific cores (e.g., "0,1,2,3")
+   - **Priority Level**: Choose from available priority classes
+   - **Apply**: Click "Apply Process Optimization" to implement settings
+   - **Remove**: Reset to defaults with "Remove Process Optimization"
+
+3. **Stop Monitoring**:
+   - Click "Stop Monitoring" when finished gaming
+   - System returns to normal operation
+
+### Tools Menu
+
+#### Available Tools:
+- **Clear Log** - Clear current tab's log content
+- **Save Log** - Export log to text file
+- **Set Window Size** - Adjust application window dimensions
+- **Debug Console** - View detailed debug information
+- **Trickster** - Activate power plan manipulation feature
+- **Exit** - Close the application
+
+#### Window Size Settings:
+- Pre-defined common resolutions
+- Custom resolution input
+- Instant application resizing
+
+#### Debug Console:
+- Real-time debug log viewing
+- Refresh to see latest entries
+- Essential for troubleshooting
+
+---
+
+## Best Practices
+
+### For Optimal Performance:
+1. **Regular Maintenance**:
+   - Run System Optimizer weekly
+   - Clean temp files and flush DNS regularly
+   - Monitor system performance
+
+2. **Gaming Sessions**:
+   - Set power plan to High Performance before gaming
+   - Use Game Optimizer monitoring during sessions
+   - Save program lists for quick setup
+
+3. **System Configuration**:
+   - Keep G.A.L updated with latest versions
+   - Run as Administrator for full functionality
+   - Monitor debug logs for any issues
+
+### Safety Notes:
+- Always back up important data before major optimizations
+- Some optimizations may require system restart
+- Disabled features can be re-enabled manually if needed
+- Monitor system stability after applying optimizations
+
+---
+
+## Troubleshooting
+
+### Common Issues:
+
+1. **Administrator Privileges Required**:
+   - Right-click G.A.L and "Run as Administrator"
+   - Ensure User Account Control allows changes
+
+2. **Python Not Found**:
+   - Reinstall Python with "Add to PATH" enabled
+   - Verify installation with `python --version`
+
+3. **Missing Dependencies**:
+   - Run `Run.bat` to auto-install requirements
+   - Check `GAL_Install_Debug.log` for specific errors
+
+4. **Features Not Working**:
+   - Verify Administrator privileges
+   - Check Windows version compatibility
+   - Review debug console for error messages
+
+### Support Resources:
+- Check `debug_log.txt` for detailed operation logs
+- Use Debug Console in Tools menu for real-time monitoring
+- Review installation log for setup issues
+
+---
+
+## Technical Details
+
+### Architecture:
+- **Language**: Python 3.7+
+- **GUI Framework**: CustomTkinter
+- **System Integration**: psutil, winreg, subprocess
+- **Performance**: Multi-threaded operations
+
+### Safety Features:
+- Comprehensive error handling
+- Process validation before optimization
+- System state monitoring
+- Rollback capabilities for critical operations
+
+### Compatibility:
+- **Windows Versions**: 10, 11 (64-bit)
+- **Architecture**: x64 systems
+- **Python**: 3.7 through 3.11+
+
+---
+
+## Legal and Licensing
+
+### License:
+- **MIT License** - Open source with permissive usage
+- **Copyright**: 2025 Robby Barnedt
+- **Distribution**: Free to use, modify, and distribute
+
+### Disclaimer:
+G.A.L is provided as-is without warranties. Users assume all responsibility for system changes. Always maintain current backups before performing system optimizations.
+
+---
+
+## Support and Community
+
+### Developer:
+- **Primary Developer**: xxxnightvoidxxx
+- **Coding Assistance**: DeepSeek AI
+- **Contact**: Available through official channels
+
+### Community Resources:
+- **Twitch**: https://www.twitch.tv/xxxnightvoidxxx
+- **YouTube**: https://www.youtube.com/@xxxNightVoidxxx
+- **Patreon**: https://www.patreon.com/c/xxxnightvoidxxx
+
+### Contribution:
+- Bug reports and feature requests welcome
+- Community feedback drives development
+- Regular updates based on user experience
+
+---
+
+## Final Notes
+
+G.A.L represents the culmination of gaming optimization technology, designed for gamers who refuse to accept subpar performance. By combining comprehensive system maintenance with real-time game optimization, it provides a complete solution for maximizing your gaming experience.
+
+**Join the legion of optimized gamers and experience your system's true potential.**
+
+*"Nothing is more badass than treating a woman with respect!"*  
+*- Borderlands*
+
+Now go forth, gamer. The legion awaits.
 
 - xxxnightvoidxxx
-"Nothing is more badass than treating a woman with respect!"
-- Borderlands
 
 Made with help from DeepSeek!
 
@@ -73,3 +302,4 @@ Twitch: https://www.twitch.tv/xxxnightvoidxxx
 YouTube: https://www.youtube.com/@xxxNightVoidxxx
 
 Now go forth, gamer. The legion awaits.
+
