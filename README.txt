@@ -1,35 +1,60 @@
-If it says "Python 3.x," you’re good. If not, uninstall and try again. You’re not ready for G.A.L if you can’t even install Python.
+G.A.L Quick Install Guide
+🚀 3-Step Installation
+1. Download & Extract
+Get G.A.L package and extract to any folder
 
----
+Keep all files together
 
-STEP 3: RUN THE INSTALLER
-- Double-click `Run.bat` to start the installation.
-- If you’re lucky, everything’s already set up, and G.A.L will launch automatically.
-- If not, the installer will guide you through the rest. Pay attention, or you’ll miss something important.
+2. Run Installer
+Right-click Run.bat
 
----
+Select "Run as administrator"
 
-STEP 4: SIT BACK AND LET THE MAGIC HAPPEN
-- The installer will check for dependencies, upgrade pip, and install everything you need.
-- If it asks for admin privileges, give it. You’re not in control here.
-- Once it’s done, G.A.L will launch. If it doesn’t, you probably messed something up. Try again.
+Click "Yes" to UAC prompt
 
----
+Wait for automatic setup
 
-STEP 5: JOIN THE LEGION
-- Congratulations, you’ve installed G.A.L. You’re now part of something bigger than yourself.
-- If you encounter issues, check the `GAL_Install_Debug.log` file for clues. Don’t come crying to me if you didn’t read it.
+3. Launch & Optimize
+Double-click G.A.L.pyw
 
----
+Start optimizing your system!
 
-NOTES:
-- Keep `G.A.L.pyw` and the other files in the same folder. Don’t move them unless you know what you’re doing.
-- If you force reinstall (because you’re paranoid), edit `Run.bat` and set `FORCE_INSTALL` to 1. But don’t blame me if things break.
-- Also, if you want to delete d bug files.... Do it!
-You'll understand I'm sure of it!!
+⚠️ Requirements Check
+Before installing:
 
----
+✅ Windows 10/11 (64-bit)
 
-Now go forth, gamer. The legion awaits.
+✅ Python 3.7+ (Download here)
 
-- xxxnightvoidxxx
+✅ Administrator rights
+
+Python Installation Tip:
+Check "Add Python to PATH" during install
+
+🛠️ Quick Troubleshooting
+If G.A.L won't launch:
+
+Always run as Administrator
+
+Verify Python is installed: python --version
+
+Check all files are in same folder
+
+Missing features?
+
+Run System Optimizer first
+
+Set power plan in Game Optimizer
+
+Add games to monitor list
+
+📁 File Structure
+text
+GAL_Folder/
+├── G.A.L.pyw          (Main app)
+├── Run.bat            (Installer)
+├── requirements.txt   (Dependencies)
+└── *.log files        (Debug info)
+Need help? Check the Help tab in G.A.L or view debug logs.
+
+Join the legion of optimized gamers! 🎮✨
