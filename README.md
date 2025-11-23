@@ -101,5 +101,5 @@ LEGAL
 -----
 This software is provided as-is without warranty. Use at your own risk. Always create system backups before performing major optimizations.
 
-VERSION: 2.0
+VERSION: 1.1
 RELEASE DATE: 2024
