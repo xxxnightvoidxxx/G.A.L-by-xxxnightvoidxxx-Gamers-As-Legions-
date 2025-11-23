@@ -1,4 +1,33 @@
-psutil==5.9.8
-customtkinter==5.2.2
-Pillow==10.2.0
-setuptools==70.0.0
+# G.A.L - Gamers As Legions
+# Python Dependencies Requirements
+# Version: 1.1
+
+# Core Application Dependencies
+customtkinter>=5.2.0
+psutil>=5.9.0
+GPUtil>=1.4.0
+
+# System Information and Monitoring
+wmi>=1.5.1
+speedtest-cli>=2.1.3
+
+# Optional Dependencies (Enhanced Features)
+pillow>=9.5.0  # For enhanced UI elements
+
+# Development and Debugging
+logging>=0.4.9.6
+
+# Note: Some packages are part of Python standard library:
+# - os, sys, subprocess, ctypes
+# - threading, time, datetime
+# - tkinter, queue
+# - platform, re, json, webbrowser
+# - winreg (Windows registry access)
+
+# Installation Command:
+# pip install -r requirements.txt
+
+# Python Version Requirement: 3.7 or higher
+
+# Windows-specific dependencies are handled by the application
+# Administrator privileges required for full functionality
