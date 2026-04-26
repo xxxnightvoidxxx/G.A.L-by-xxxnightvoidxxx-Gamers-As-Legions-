@@ -1,0 +1,74 @@
+{
+  "app": {
+    "name": "G.A.L - Gamers As Legions",
+    "version": "1.5.0",
+    "safe_mode": false,
+    "theme": "dark",
+    "debug_console_enabled": true,
+    "show_startup_cleanup_warning": true
+  },
+  "logging": {
+    "log_file": "debug.log",
+    "debug_log_file": "debug_log.txt",
+    "clear_logs_on_request_only": true,
+    "quiet_locked_file_errors": true
+  },
+  "cleanup": {
+    "close_open_programs_before_cleanup": false,
+    "show_cleanup_summary": true,
+    "skip_locked_files": true,
+    "targets": {
+      "windows_temp": true,
+      "prefetch": true,
+      "recycle_bin": true,
+      "windows_update_cache": true,
+      "temporary_internet_files": true,
+      "thumbnails": true,
+      "delivery_optimization": true,
+      "temp_folder": true,
+      "defender_scan_files": true,
+      "windows_upgrade_logs": true,
+      "system_recovery_logs": true
+    }
+  },
+  "network": {
+    "flush_dns_cache": true,
+    "cloudflare_dns": {
+      "enabled": false,
+      "primary": "1.1.1.1",
+      "secondary": "1.0.0.1",
+      "target_primary_physical_adapter_only": true
+    },
+    "restore_original_dns_supported": true,
+    "optimize_network_adapter": false,
+    "limit_reservable_bandwidth": {
+      "disabled": false,
+      "policy_key": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Psched",
+      "value_name": "NonBestEffortLimit",
+      "value_data": 0
+    }
+  },
+  "tools_menu": {
+    "show_debug_console": true,
+    "show_advanced_system_info": true,
+    "show_set_window_size": true,
+    "show_disable_limit_reservable_bandwidth": true,
+    "show_revert_lrb": true,
+    "show_restore_original_dns": true,
+    "show_optimize_polling_rate": true,
+    "show_revert_polling_rate": true,
+    "show_priority_bypasser": true,
+    "show_restore_standard_windows_settings": true,
+    "show_trickster": true
+  },
+  "game_optimizer": {
+    "auto_monitoring_enabled": false,
+    "default_priority": "HIGH_PRIORITY_CLASS",
+    "default_affinity": "",
+    "restore_default_power_plans_available": true
+  },
+  "performance_monitor": {
+    "start_automatically": false,
+    "refresh_interval_seconds": 2
+  }
+}
