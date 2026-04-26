@@ -1,6 +1,6 @@
 # G.A.L - Gamers As Legions
 # Python Dependencies Requirements
-# Version: 1.5.0
+# Version: 1.2.0
 
 # Core Application Dependencies
 customtkinter>=5.2.0
