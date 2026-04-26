@@ -1,6 +1,6 @@
 # G.A.L - Gamers As Legions
 # Python Dependencies Requirements
-# Version: 1.1
+# Version: 1.5.0
 
 # Core Application Dependencies
 customtkinter>=5.2.0
@@ -11,23 +11,20 @@ GPUtil>=1.4.0
 wmi>=1.5.1
 speedtest-cli>=2.1.3
 
-# Optional Dependencies (Enhanced Features)
-pillow>=9.5.0  # For enhanced UI elements
+# Optional UI / Imaging
+Pillow>=9.5.0
 
-# Development and Debugging
-logging>=0.4.9.6
+# Notes:
+# - Do not list Python standard library modules here.
+# - Modules such as os, sys, subprocess, ctypes, threading, time,
+#   datetime, tkinter, queue, platform, re, json, pathlib, logging,
+#   webbrowser, shutil, and importlib are included with Python.
+# - winreg is part of the Python standard library on Windows.
+# - Administrator privileges are still required for full functionality.
+# - Windows-specific behavior is handled by the application itself.
 
-# Note: Some packages are part of Python standard library:
-# - os, sys, subprocess, ctypes
-# - threading, time, datetime
-# - tkinter, queue
-# - platform, re, json, webbrowser
-# - winreg (Windows registry access)
-
-# Installation Command:
+# Installation command:
 # pip install -r requirements.txt
 
-# Python Version Requirement: 3.7 or higher
-
-# Windows-specific dependencies are handled by the application
-# Administrator privileges required for full functionality
+# Python version requirement:
+# Python 3.7 or higher
