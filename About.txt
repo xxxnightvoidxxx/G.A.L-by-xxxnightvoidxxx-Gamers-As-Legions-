@@ -1,6 +1,8 @@
 G.A.L - Gamers As Legions
 Version 2.0
-Release Date: 2024
+Release Date: 4/26/2024 2:11 A.M.
+
+Requires "Python Installation" to run. 
 
 DEVELOPMENT TEAM
 ----------------
@@ -8,10 +10,16 @@ Primary Developer: xxxnightvoidxxx
                   (Twitch/YouTube Content Creator)
 
 Also Known As: xxxsilentdeviantxxx
-               (YouTube Channel)
+               (YouTube Channel Musician)
 
 AI Development Assistant: Deepseek.com
-                         (Advanced AI Coding Assistant)
+                         (Advanced AI Language/Coding Assistant)
+
+AI Development Assistant: Perplexity.ai  
+                        (Advanced AI Language/Coding Assistant) 
+                       
+AI Development Assistant: https://gemini.google.com/
+                        (Advanced AI Language/Coding Assistant)
 
 PROJECT DESCRIPTION
 -------------------
@@ -99,3 +107,10 @@ CONTACT
 For feature suggestions and bug reports, please use the official channels mentioned in the application.
 
 "Optimizing performance, empowering gamers."
+
+Contact xxxnightvoidxxx@gmail.com 
+
+Note: I do not take any responsibility for any damages, or any problems that may or may not exist in any form or any way! Always cross reference everything you find online, and check and double check and tripple check to make sure everything is up to par per your device that you use. Conflicts can come from updates on any software/program with the vast ammounts of updates with different software and the opperating system. It is always good to put into practice creating a restore point or a snapshot etc, before trying any programs you find online! This program is tested by me, personally, and is currently working and I have found no bugs, and it does not crash on my pc, running windows 10, durring this release. I have not found any bugs yet, and have done testing, and checking, and it is stable and does what it is supposed to. If you try the program, and there is a bug, than please do let me know via email. Also, if you have any suggestions please to, let me know so I can keep your suggestions in mind for any of the future updates. Thank you for your time and Enjoy!! P.S. If you feel unsafe about any web content, from any publisher you are unaware of, use a virtual machine, to test the program first, and then afterwards, run the program through a virus scan to make sure everything is good. If you know what your doing, than this note is not meant for you!
+Note 2: If you feel unsafe and are unknowlegable about coding, or about this particular program, you can copy and paste the code into a coding ai, a couple are previously mentioned, and ask it to explain the code, what it does, how it works, and questions about it, and the ai will give the answers you need. "Pro Tips" 
+
+If you like the program, and would like to support me, in future projects, or out of kindness, I won't stop you! I love learning and doing these kinds of things, and unfortunatley lifes tough when it runs on tiny green rectangles. paypal.me/robbybarnedt 
