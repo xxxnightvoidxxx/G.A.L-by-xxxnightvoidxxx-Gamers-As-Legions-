@@ -1,5 +1,5 @@
 G.A.L - Gamers As Legions
-Version 2.0
+Version 1.2
 Release Date: 4/26/2024 2:11 A.M.
 
 Requires "Python Installation" to run. 
