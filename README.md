@@ -91,13 +91,16 @@ Limit Reservable Bandwidth
 G.A.L now includes a dedicated Tools-menu action for Disable Limit Reservable Bandwidth and a matching Revert LRB option. The disable action creates or verifies the registry key HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Psched, then creates or updates the NonBestEffortLimit DWORD and sets it to 0. The revert action removes NonBestEffortLimit, allowing Windows to fall back to default behavior .
 
 Installation
-Install Python 3.7 or newer on Windows.
 
-Run the application with Administrator privileges for full functionality.
+[Install Python 3.7 or newer on Windows.]
 
-Allow the application to install required dependencies if prompted.
+1. Download Zip
 
-Launch the latest script build rather than an older local copy if you want the newest Tools-menu options and logging improvements .
+2. Extract Zip into a directory.
+
+3. Cd into the directory.
+
+4. Run the numbered bats in order, labeled in order within the directory, 1_Venvy first, 2_Activate second, 3_ third Run 
 
 System Requirements
 Windows 10 or Windows 11.
