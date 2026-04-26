@@ -1,10 +1,14 @@
 @echo off
+setlocal EnableExtensions EnableDelayedExpansion
+
 title G.A.L - Gamers As Legions Launcher
 color 0A
+cd /d "%~dp0"
+
 echo.
 echo ========================================
-echo    G.A.L - Gamers As Legions
-echo    System Optimization Tool
+echo     G.A.L - Gamers As Legions
+echo     System Optimization Tool
 echo ========================================
 echo.
 
@@ -29,113 +33,97 @@ if %errorLevel% == 0 (
     echo Administrator privileges: Yes
 ) else (
     echo Administrator privileges: No
-    echo WARNING: Some features may require Administrator rights!
+    echo WARNING: Some features require Administrator rights for full functionality.
     echo.
 )
 
-echo.
 echo Step 1: Installing required dependencies...
 echo.
 
-:: Install dependencies from requirements.txt
+:: Install dependencies from requirements.txt when available
 if exist requirements.txt (
     echo Installing dependencies from requirements.txt...
-    pip install -r requirements.txt
+    python -m pip install -r requirements.txt
     if errorlevel 1 (
         echo.
-        echo ERROR: Failed to install some dependencies!
-        echo Trying individual package installation...
+        echo WARNING: requirements.txt install had issues.
+        echo Falling back to individual package installation...
         echo.
-        
-        echo Installing customtkinter...
-        pip install customtkinter
-        
-        echo Installing psutil...
-        pip install psutil
-        
-        echo Installing GPUtil...
-        pip install GPUtil
-        
-        echo Installing wmi...
-        pip install wmi
-        
-        echo Installing speedtest-cli...
-        pip install speedtest-cli
-        
-        echo Installing Pillow...
-        pip install pillow
+        python -m pip install customtkinter
+        python -m pip install psutil
+        python -m pip install GPUtil
+        python -m pip install wmi
+        python -m pip install speedtest-cli
+        python -m pip install Pillow
     )
 ) else (
     echo requirements.txt not found, installing dependencies individually...
     echo.
-    
-    echo Installing customtkinter...
-    pip install customtkinter
-    
-    echo Installing psutil...
-    pip install psutil
-    
-    echo Installing GPUtil...
-    pip install GPUtil
-    
-    echo Installing wmi...
-    pip install wmi
-    
-    echo Installing speedtest-cli...
-    pip install speedtest-cli
-    
-    echo Installing Pillow...
-    pip install pillow
+    python -m pip install customtkinter
+    python -m pip install psutil
+    python -m pip install GPUtil
+    python -m pip install wmi
+    python -m pip install speedtest-cli
+    python -m pip install Pillow
 )
 
 echo.
-echo Step 2: Checking if all dependencies are installed...
+echo Step 2: Verifying critical dependencies...
 echo.
 
-:: Verify critical dependencies
-python -c "import customtkinter; print('✓ customtkinter - OK')" 2>nul || echo ✗ customtkinter - MISSING
-python -c "import psutil; print('✓ psutil - OK')" 2>nul || echo ✗ psutil - MISSING
-python -c "import GPUtil; print('✓ GPUtil - OK')" 2>nul || echo ✗ GPUtil - MISSING
-python -c "import wmi; print('✓ wmi - OK')" 2>nul || echo ✗ wmi - MISSING
-python -c "import speedtest; print('✓ speedtest-cli - OK')" 2>nul || echo ✗ speedtest-cli - MISSING
+python -c "import customtkinter; print('customtkinter - OK')" 2>nul || echo customtkinter - MISSING
+python -c "import psutil; print('psutil - OK')" 2>nul || echo psutil - MISSING
+python -c "import GPUtil; print('GPUtil - OK')" 2>nul || echo GPUtil - MISSING
+python -c "import wmi; print('wmi - OK')" 2>nul || echo wmi - MISSING
+python -c "import speedtest; print('speedtest-cli - OK')" 2>nul || echo speedtest-cli - MISSING
+python -c "from PIL import Image; print('Pillow - OK')" 2>nul || echo Pillow - MISSING
 
 echo.
-echo Step 3: Launching G.A.L Application...
+echo Step 3: Locating the latest G.A.L application...
 echo.
 
-:: Find the main Python file
-set MAIN_FILE=G.A.L.py
-if exist "%MAIN_FILE%" (
-    echo Launching %MAIN_FILE%...
-    echo.
-    python "%MAIN_FILE%"
-) else (
-    :: Try to find any Python file that might be the main application
-    echo Searching for main application file...
-    for %%i in (*.py) do (
-        echo Found: %%i
-        set MAIN_FILE=%%i
+set "MAIN_FILE="
+
+:: Preferred filenames first
+for %%F in (
+    "Tools_v1.5.0_lrb-revert-added.pyw"
+    "Tools_v1.4.9_bandwidth-menu-visible.pyw"
+    "Tools_v1.4.8_bandwidth-in-tools-menu.pyw"
+    "Tools_v1.4.7_bandwidth-key-create.pyw"
+    "Tools_v1.4.6_bandwidth-warning-fixed-clean.pyw"
+    "G.A.L_V1.2_updated.pyw"
+    "G.A.L_V1.1.pyw"
+    "G.A.L.pyw"
+) do (
+    if exist %%~F (
+        set "MAIN_FILE=%%~F"
         goto :launch
     )
-    
-    :launch
-    if defined MAIN_FILE (
-        echo.
-        echo Launching %MAIN_FILE%...
-        echo.
-        python "%MAIN_FILE%"
-    ) else (
-        echo.
-        echo ERROR: No Python file found to launch!
-        echo Please ensure the G.A.L Python file is in the same directory.
-        echo.
-        pause
-    )
+)
+
+:: Fallback: first .pyw in the current folder
+for %%i in (*.pyw) do (
+    set "MAIN_FILE=%%i"
+    goto :launch
+)
+
+:launch
+if defined MAIN_FILE (
+    echo Launching !MAIN_FILE!...
+    echo.
+    python "!MAIN_FILE!"
+) else (
+    echo ERROR: No Python .pyw file found to launch!
+    echo Please ensure the G.A.L Python file is in the same directory.
+    echo.
+    pause
+    exit /b 1
 )
 
 echo.
 echo ========================================
-echo    G.A.L Application Closed
+echo     G.A.L Application Closed
 echo ========================================
 echo.
 pause
+endlocal
