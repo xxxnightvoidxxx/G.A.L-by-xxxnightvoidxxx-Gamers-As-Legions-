@@ -163,3 +163,7 @@ Version
 README updated for current feature set reflected in the latest session build.
 
 Current referenced build: G.A.L_V1.2_updated.pyw
+
+by robert barnedt 3  
+
+support the dev: paypal.me/robbybarnedt
