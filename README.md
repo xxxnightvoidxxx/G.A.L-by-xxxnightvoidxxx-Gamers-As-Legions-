@@ -98,7 +98,7 @@ Installation
 
 2. Extract Zip into a directory.
 
-3. Open Run.bat
+3. Open Run.bat as admin.
 
 System Requirements
 Windows 10 or Windows 11.
