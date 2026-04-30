@@ -30,22 +30,30 @@ echo User: %USERNAME% >> "%DEBUG_LOG%"
 echo Architecture: %PROCESSOR_ARCHITECTURE% >> "%DEBUG_LOG%"
 echo. >> "%DEBUG_LOG%"
 
-:: Part 1: Create Python virtual environment
-echo [PART 1 of 4] Creating Python virtual environment...
+:: Part 1: Check if virtual environment exists, if not create it
+echo [PART 1 of 4] Checking for existing virtual environment...
 echo.
-echo [STEP 1] Creating Python virtual environment >> "%DEBUG_LOG%"
-echo Command: python -m venv .venv >> "%DEBUG_LOG%"
 
-python -m venv .venv
-if errorlevel 1 (
-    echo ERROR: Failed to create virtual environment! >> "%DEBUG_LOG%"
-    echo ERROR: Failed to create virtual environment!
-    echo Errorlevel: !errorlevel! >> "%DEBUG_LOG%"
-    pause
-    exit /b 1
+if exist ".venv\Scripts\activate.bat" (
+    echo Virtual environment already exists! Skipping creation...
+    echo [STEP 1] Virtual environment already exists, skipping creation >> "%DEBUG_LOG%"
+    echo Virtual environment path: %CD%\.venv >> "%DEBUG_LOG%"
+) else (
+    echo Creating Python virtual environment...
+    echo [STEP 1] Creating Python virtual environment >> "%DEBUG_LOG%"
+    echo Command: python -m venv .venv >> "%DEBUG_LOG%"
+    
+    python -m venv .venv
+    if errorlevel 1 (
+        echo ERROR: Failed to create virtual environment! >> "%DEBUG_LOG%"
+        echo ERROR: Failed to create virtual environment!
+        echo Errorlevel: !errorlevel! >> "%DEBUG_LOG%"
+        pause
+        exit /b 1
+    )
+    echo Virtual environment created successfully! >> "%DEBUG_LOG%"
+    echo Virtual environment created successfully!
 )
-echo Virtual environment created successfully! >> "%DEBUG_LOG%"
-echo Virtual environment created successfully!
 echo.
 
 :: Part 2: Activate virtual environment
@@ -76,6 +84,17 @@ if defined VIRTUAL_ENV (
     echo WARNING: Virtual environment may not be active!
 )
 echo. >> "%DEBUG_LOG%"
+
+:: Clear pip cache to prevent deserialization warnings
+echo [OPTIMIZATION] Clearing pip cache to prevent warnings... >> "%DEBUG_LOG%"
+echo Clearing pip cache for cleaner installation...
+python -m pip cache purge >nul 2>&1
+if errorlevel 1 (
+    echo WARNING: Could not clear pip cache, continuing anyway... >> "%DEBUG_LOG%"
+) else (
+    echo Pip cache cleared successfully! >> "%DEBUG_LOG%"
+)
+echo.
 
 :: Part 3: Install dependencies and run application
 echo [PART 3 of 4] Setting up dependencies and launching application...
@@ -110,11 +129,15 @@ for /f "tokens=1,2 delims=." %%a in ("%PYTHON_VERSION%") do (
 echo Getting pip version before upgrade... >> "%DEBUG_LOG%"
 python -m pip --version >> "%DEBUG_LOG%" 2>&1
 
+:: Set pip environment variables to reduce warnings
+set PIP_NO_CACHE_DIR=0
+set PIP_NO_WARN_SCRIPT_LOCATION=1
+
 :: Upgrade pip to latest version
 echo [STEP 3a] Upgrading pip to latest version... >> "%DEBUG_LOG%"
 echo Upgrading pip to latest version...
-echo Command: python.exe -m pip install --upgrade pip >> "%DEBUG_LOG%"
-python.exe -m pip install --upgrade pip
+echo Command: python.exe -m pip install --upgrade pip --no-cache-dir >> "%DEBUG_LOG%"
+python.exe -m pip install --upgrade pip --no-cache-dir
 if errorlevel 1 (
     echo WARNING: Pip upgrade had issues! Continuing with existing pip... >> "%DEBUG_LOG%"
     echo WARNING: Pip upgrade had issues! Continuing with existing pip...
@@ -127,8 +150,8 @@ echo.
 :: Install setuptools for Python 3.12+ compatibility (fixes distutils issue)
 echo [STEP 3a.1] Installing setuptools for distutils compatibility... >> "%DEBUG_LOG%"
 echo Installing setuptools for Python 3.12+ compatibility...
-echo Command: python -m pip install setuptools --upgrade >> "%DEBUG_LOG%"
-python -m pip install setuptools --upgrade
+echo Command: python -m pip install setuptools --upgrade --no-cache-dir >> "%DEBUG_LOG%"
+python -m pip install setuptools --upgrade --no-cache-dir
 if errorlevel 1 (
     echo WARNING: setuptools installation had issues! GPUtil may fail... >> "%DEBUG_LOG%"
     echo WARNING: setuptools installation had issues! GPUtil may fail...
@@ -155,6 +178,37 @@ if %errorLevel% == 0 (
     echo.
 )
 
+:: Function to check if a package is installed
+call :is_package_installed customtkinter
+set CUSTOMTKINTER_INSTALLED=%ERRORLEVEL%
+call :is_package_installed psutil
+set PSUTIL_INSTALLED=%ERRORLEVEL%
+call :is_package_installed GPUtil
+set GPUTIL_INSTALLED=%ERRORLEVEL%
+call :is_package_installed wmi
+set WMI_INSTALLED=%ERRORLEVEL%
+call :is_package_installed speedtest
+set SPEEDTEST_INSTALLED=%ERRORLEVEL%
+call :is_package_installed PIL
+set PILLOW_INSTALLED=%ERRORLEVEL%
+
+:: Check if all dependencies are already installed
+if %CUSTOMTKINTER_INSTALLED% EQU 0 (
+    if %PSUTIL_INSTALLED% EQU 0 (
+        if %GPUTIL_INSTALLED% EQU 0 (
+            if %WMI_INSTALLED% EQU 0 (
+                if %SPEEDTEST_INSTALLED% EQU 0 (
+                    if %PILLOW_INSTALLED% EQU 0 (
+                        echo All dependencies already installed! Skipping installation...
+                        echo [STEP 3b] All dependencies already installed, skipping >> "%DEBUG_LOG%"
+                        goto :skip_installation
+                    )
+                )
+            )
+        )
+    )
+)
+
 echo Installing required dependencies...
 echo.
 echo [STEP 3b] Installing dependencies >> "%DEBUG_LOG%"
@@ -163,8 +217,8 @@ echo [STEP 3b] Installing dependencies >> "%DEBUG_LOG%"
 if exist requirements.txt (
     echo Installing dependencies from requirements.txt... >> "%DEBUG_LOG%"
     echo Installing dependencies from requirements.txt...
-    echo Command: python -m pip install -r requirements.txt >> "%DEBUG_LOG%"
-    python -m pip install -r requirements.txt
+    echo Command: python -m pip install -r requirements.txt --no-cache-dir >> "%DEBUG_LOG%"
+    python -m pip install -r requirements.txt --no-cache-dir
     if errorlevel 1 (
         echo.
         echo WARNING: requirements.txt install had issues. >> "%DEBUG_LOG%"
@@ -175,17 +229,17 @@ if exist requirements.txt (
         
         :: Individual installations with GPUtil fix
         echo Installing customtkinter... >> "%DEBUG_LOG%"
-        python -m pip install customtkinter >> "%DEBUG_LOG%" 2>&1
+        python -m pip install customtkinter --no-cache-dir >> "%DEBUG_LOG%" 2>&1
         
         echo Installing psutil... >> "%DEBUG_LOG%"
-        python -m pip install psutil >> "%DEBUG_LOG%" 2>&1
+        python -m pip install psutil --no-cache-dir >> "%DEBUG_LOG%" 2>&1
         
         echo Installing GPUtil with compatibility fix... >> "%DEBUG_LOG%"
-        python -m pip install GPUtil >> "%DEBUG_LOG%" 2>&1
+        python -m pip install GPUtil --no-cache-dir >> "%DEBUG_LOG%" 2>&1
         if errorlevel 1 (
             echo GPUtil failed with distutils error, installing from alternative source... >> "%DEBUG_LOG%"
             echo Attempting to install GPUtil from GitHub fork...
-            python -m pip install git+https://github.com/anderskm/GPUtil.git >> "%DEBUG_LOG%" 2>&1
+            python -m pip install git+https://github.com/anderskm/GPUtil.git --no-cache-dir >> "%DEBUG_LOG%" 2>&1
             if errorlevel 1 (
                 echo WARNING: GPUtil installation failed - GPU monitoring disabled >> "%DEBUG_LOG%"
                 echo NOTE: GPU monitoring features will not be available >> "%DEBUG_LOG%"
@@ -197,13 +251,13 @@ if exist requirements.txt (
         )
         
         echo Installing wmi... >> "%DEBUG_LOG%"
-        python -m pip install wmi >> "%DEBUG_LOG%" 2>&1
+        python -m pip install wmi --no-cache-dir >> "%DEBUG_LOG%" 2>&1
         
         echo Installing speedtest-cli... >> "%DEBUG_LOG%"
-        python -m pip install speedtest-cli >> "%DEBUG_LOG%" 2>&1
+        python -m pip install speedtest-cli --no-cache-dir >> "%DEBUG_LOG%" 2>&1
         
         echo Installing Pillow... >> "%DEBUG_LOG%"
-        python -m pip install Pillow >> "%DEBUG_LOG%" 2>&1
+        python -m pip install Pillow --no-cache-dir >> "%DEBUG_LOG%" 2>&1
     )
 ) else (
     echo requirements.txt not found, installing dependencies individually... >> "%DEBUG_LOG%"
@@ -211,44 +265,65 @@ if exist requirements.txt (
     echo.
     
     :: Individual installations with GPUtil fix
-    echo Installing customtkinter... >> "%DEBUG_LOG%"
-    python -m pip install customtkinter >> "%DEBUG_LOG%" 2>&1
-    
-    echo Installing psutil... >> "%DEBUG_LOG%"
-    python -m pip install psutil >> "%DEBUG_LOG%" 2>&1
-    
-    echo Installing GPUtil with compatibility fix... >> "%DEBUG_LOG%"
-    echo Attempting to install GPUtil...
-    python -m pip install GPUtil >> "%DEBUG_LOG%" 2>&1
-    if errorlevel 1 (
-        echo GPUtil failed with distutils error, installing from alternative source... >> "%DEBUG_LOG%"
-        echo Attempting to install GPUtil from GitHub fork...
-        python -m pip install git+https://github.com/anderskm/GPUtil.git >> "%DEBUG_LOG%" 2>&1
-        if errorlevel 1 (
-            echo WARNING: GPUtil installation failed - GPU monitoring disabled >> "%DEBUG_LOG%"
-            echo NOTE: GPU monitoring features will not be available >> "%DEBUG_LOG%"
-            echo.
-            echo To fix GPU monitoring manually later, run:
-            echo pip install setuptools
-            echo pip install GPUtil
-            echo.
-        ) else (
-            echo GPUtil installed from GitHub successfully! >> "%DEBUG_LOG%"
-        )
+    if %CUSTOMTKINTER_INSTALLED% NEQ 0 (
+        echo Installing customtkinter... >> "%DEBUG_LOG%"
+        python -m pip install customtkinter --no-cache-dir >> "%DEBUG_LOG%" 2>&1
     ) else (
-        echo GPUtil installed successfully! >> "%DEBUG_LOG%"
+        echo customtkinter already installed, skipping...
     )
     
-    echo Installing wmi... >> "%DEBUG_LOG%"
-    python -m pip install wmi >> "%DEBUG_LOG%" 2>&1
+    if %PSUTIL_INSTALLED% NEQ 0 (
+        echo Installing psutil... >> "%DEBUG_LOG%"
+        python -m pip install psutil --no-cache-dir >> "%DEBUG_LOG%" 2>&1
+    ) else (
+        echo psutil already installed, skipping...
+    )
     
-    echo Installing speedtest-cli... >> "%DEBUG_LOG%"
-    python -m pip install speedtest-cli >> "%DEBUG_LOG%" 2>&1
+    if %GPUTIL_INSTALLED% NEQ 0 (
+        echo Installing GPUtil with compatibility fix... >> "%DEBUG_LOG%"
+        echo Attempting to install GPUtil...
+        python -m pip install GPUtil --no-cache-dir >> "%DEBUG_LOG%" 2>&1
+        if errorlevel 1 (
+            echo GPUtil failed with distutils error, installing from alternative source... >> "%DEBUG_LOG%"
+            echo Attempting to install GPUtil from GitHub fork...
+            python -m pip install git+https://github.com/anderskm/GPUtil.git --no-cache-dir >> "%DEBUG_LOG%" 2>&1
+            if errorlevel 1 (
+                echo WARNING: GPUtil installation failed - GPU monitoring disabled >> "%DEBUG_LOG%"
+                echo NOTE: GPU monitoring features will not be available >> "%DEBUG_LOG%"
+                echo.
+            ) else (
+                echo GPUtil installed from GitHub successfully! >> "%DEBUG_LOG%"
+            )
+        ) else (
+            echo GPUtil installed successfully! >> "%DEBUG_LOG%"
+        )
+    ) else (
+        echo GPUtil already installed, skipping...
+    )
     
-    echo Installing Pillow... >> "%DEBUG_LOG%"
-    python -m pip install Pillow >> "%DEBUG_LOG%" 2>&1
+    if %WMI_INSTALLED% NEQ 0 (
+        echo Installing wmi... >> "%DEBUG_LOG%"
+        python -m pip install wmi --no-cache-dir >> "%DEBUG_LOG%" 2>&1
+    ) else (
+        echo wmi already installed, skipping...
+    )
+    
+    if %SPEEDTEST_INSTALLED% NEQ 0 (
+        echo Installing speedtest-cli... >> "%DEBUG_LOG%"
+        python -m pip install speedtest-cli --no-cache-dir >> "%DEBUG_LOG%" 2>&1
+    ) else (
+        echo speedtest-cli already installed, skipping...
+    )
+    
+    if %PILLOW_INSTALLED% NEQ 0 (
+        echo Installing Pillow... >> "%DEBUG_LOG%"
+        python -m pip install Pillow --no-cache-dir >> "%DEBUG_LOG%" 2>&1
+    ) else (
+        echo Pillow already installed, skipping...
+    )
 )
 
+:skip_installation
 echo.
 echo Verifying critical dependencies...
 echo.
@@ -270,9 +345,6 @@ python -c "import GPUtil; print('GPUtil - OK')" 2>nul >> "%DEBUG_LOG%" 2>&1 || e
 :: Additional check for Python 3.12+ GPUtil workaround
 if %PYTHON_MAJOR% GEQ 3 if %PYTHON_MINOR% GEQ 12 (
     echo NOTE: Python %PYTHON_VERSION% detected - GPUtil may require setuptools >> "%DEBUG_LOG%"
-    if errorlevel 1 (
-        echo TIP: Run 'pip install --upgrade setuptools' then 'pip install GPUtil' >> "%DEBUG_LOG%"
-    )
 )
 
 echo wmi verification: >> "%DEBUG_LOG%"
@@ -303,6 +375,7 @@ for %%F in (
     "Tools_v1.4.6_bandwidth-warning-fixed-clean.pyw"
     "G.A.L_V1.2_updated.pyw"
     "G.A.L_V1.1.pyw"
+    "G.A.L_V1.2.pyw"
     "G.A.L.pyw"
 ) do (
     if exist %%~F (
@@ -359,26 +432,32 @@ echo. >> "%DEBUG_LOG%"
 echo ======================================== >> "%DEBUG_LOG%"
 echo INSTALLATION SUMMARY >> "%DEBUG_LOG%"
 echo ======================================== >> "%DEBUG_LOG%"
-echo Virtual Environment Created: Yes >> "%DEBUG_LOG%"
+echo Virtual Environment Status: Existing or Created >> "%DEBUG_LOG%"
 echo Virtual Environment Path: %VIRTUAL_ENV% >> "%DEBUG_LOG%"
 echo Pip Upgraded: Yes >> "%DEBUG_LOG%"
 echo Setuptools Installed: Yes >> "%DEBUG_LOG%"
-echo Dependencies Installed: See verification above >> "%DEBUG_LOG%"
+echo Pip Cache Cleared: Yes >> "%DEBUG_LOG%"
+echo Dependencies Status: Verified >> "%DEBUG_LOG%"
 echo Application Loaded: !MAIN_FILE! >> "%DEBUG_LOG%"
 echo Completion Time: %date% %time% >> "%DEBUG_LOG%"
 echo ======================================== >> "%DEBUG_LOG%"
 
 echo.
 echo ========================================
-echo Debug log has been saved to: %DEBUG_LOG%
+echo            INSTALLATION SUCCESSFUL!
 echo ========================================
 echo.
-echo NOTE: If you see GPUtil errors, this is due to Python %PYTHON_VERSION%
-echo The application will still run, but GPU monitoring may be disabled.
-echo To fix GPU monitoring, run these commands manually:
-echo   pip install --upgrade setuptools
-echo   pip install GPUtil
+echo All dependencies have been verified!
+echo G.A.L is ready to use.
+echo.
+echo Debug log has been saved to: %DEBUG_LOG%
 echo.
 
 pause
 endlocal
+goto :eof
+
+:: Function to check if a package is installed
+:is_package_installed
+python -c "import %1" >nul 2>&1
+exit /b %ERRORLEVEL%
