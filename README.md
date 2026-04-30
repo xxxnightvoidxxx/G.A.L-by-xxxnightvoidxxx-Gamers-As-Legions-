@@ -92,7 +92,7 @@ G.A.L now includes a dedicated Tools-menu action for Disable Limit Reservable Ba
 
 Installation
 
-[Install Python 3.7 or newer on Windows.]
+[Install Python 3.7 or newer on Windows.] Best python version 3.12.10. Note: Might not work with python version 3.14. 
 
 1. Download Zip
 
