@@ -165,7 +165,7 @@ This software is provided as-is without warranty. Use at your own risk. Always c
 Version
 README updated for current feature set reflected in the latest session build.
 
-Current referenced build: G.A.L_V1.2_updated.pyw
+Current referenced build: G.A.L_V1.2.pyw
 
 by robert barnedt 3  
 
