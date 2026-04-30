@@ -1,0 +1,3 @@
+Install the latest version of python [Links in Python-4-Windows_Links.txt]
+Run the Run.bat [Installs the requirements for G.A.L]
+Have a great day!

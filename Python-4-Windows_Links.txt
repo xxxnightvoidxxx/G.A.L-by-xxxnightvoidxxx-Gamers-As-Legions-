@@ -1,0 +1,5 @@
+Architecture	Direct Download Link
+64-bit (Recommended for most users)	https://www.python.org/ftp/python/3.13.2/python-3.13.2-amd64.exe (For most people this link!)
+32-bit	https://www.python.org/ftp/python/3.13.2/python-3.13.2.exe 
+ARM64 (For ARM-based devices like Surface Pro X)	https://www.python.org/ftp/python/3.13.2/python-3.13.2-arm64.exe 
+Web-based Installer (Smaller initial download)	https://www.python.org/ftp/python/3.13.2/python-3.13.2-amd64-webinstall.exe 
