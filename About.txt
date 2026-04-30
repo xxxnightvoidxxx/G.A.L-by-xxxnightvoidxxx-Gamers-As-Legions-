@@ -87,7 +87,7 @@ SYSTEM COMPATIBILITY
 
 FUTURE DEVELOPMENT
 ------------------
-....V1.2?
+....V1.3?
 
 SPECIAL THANKS
 --------------
