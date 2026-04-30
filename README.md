@@ -98,9 +98,7 @@ Installation
 
 2. Extract Zip into a directory.
 
-3. cd into the directory.  [A faster way to mount into a directory - file explorer address bar, clear the bar with backspace, type cmd in the bar, press enter, cmd opens, than continue to step 4.]
-
-4. Run the numbered bats in order, labeled in order within the directory, 1_Venvy first, 2_Activate second, 3_Run third
+3. Open Run.bat
 
 System Requirements
 Windows 10 or Windows 11.
