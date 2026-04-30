@@ -1,3 +1,6 @@
 Install the latest version of python [Links in Python-4-Windows_Links.txt]
-Open Run.bat [Installs the requirements for G.A.L and opens G.A.L][Can be renamed by user]
+https://7-zip.org/download.html
+Download G.A.L. Put Zipped File, into a fresh new folder after 7-zip is installed, right click on G.A.L. and extract here. 
+Go into the G.A.L. folder. 
+Right click on G.A.L. than click Run as admin [Installs the requirements for G.A.L and opens G.A.L][Can be renamed by user]
 Have a great day!
